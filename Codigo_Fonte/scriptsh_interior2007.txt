@@ -1,0 +1,67 @@
+#!/bin/csh -f
+#
+
+# referencia
+#set M = 1.000
+#set R = 0.870
+#set L = 0.688
+#set T = 5640.
+#set rho = 1.0E-07
+#set X = 0.706
+#set Z = 0.0199
+#
+
+set M = 1.000
+set R = 0.870
+set L = 0.688
+set Tef = 5640.
+set d = 1.0E-03
+set X = 0.706
+set Z = 0.0199
+
+# cor-sol
+#set M = 1.000
+#set R = 0.870
+#set L = 0.688
+#set Tef = 5640.
+#set d = 1.0E-03
+#set X = 0.706
+#set Z = 0.0199
+#
+set M = 1.000
+set R = 1.000
+set L = 1.000
+set Tef = 5777.
+set d = 1.0E-03
+set X = 0.700
+set Z = 0.0165
+#
+
+set M = 1.000
+set R = 0.870
+set L = 0.688
+set Tef = 5640.
+set d = 1.0E-03
+set X = 0.706
+set Z = 0.0199
+
+
+#rm -f interior.out
+#gfortran -o interior2007.out interior2007.f
+
+./interior2007.out << EOF
+${M}
+${R}
+${L}
+${Tef}
+${d}
+${X}
+${Z}
+EOF
+
+cp pontos1.dat pontos1_M${M}_R${R}_L${L}_T${Tef}_Rho${d}_X${X}_Z${Z}.dat
+cp pontos2.dat pontos2_M${M}_R${R}_L${L}_T${Tef}_Rho${d}_X${X}_Z${Z}.dat
+cp pontos3.dat pontos3_M${M}_R${R}_L${L}_T${Tef}_Rho${d}_X${X}_Z${Z}.dat
+
+#
+#
